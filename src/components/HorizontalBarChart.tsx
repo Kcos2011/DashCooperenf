@@ -7,12 +7,12 @@ interface HorizontalBarChartProps {
 
 export function HorizontalBarChart({ data }: HorizontalBarChartProps) {
   return (
-    <div className="h-[500px] w-full">
-      <ResponsiveContainer width="100%" height="100%">
+    <div className="h-[600px] w-full overflow-x-auto">
+      <ResponsiveContainer width="100%" height="100%" minWidth={500}>
         <BarChart
           data={data}
           layout="vertical"
-          margin={{ top: 20, right: 30, left: 150, bottom: 20 }}
+          margin={{ top: 20, right: 30, left: 200, bottom: 20 }}
         >
           <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={true} />
           <XAxis
@@ -22,14 +22,16 @@ export function HorizontalBarChart({ data }: HorizontalBarChartProps) {
                 style: 'currency',
                 currency: 'BRL',
                 notation: 'compact',
+                maximumFractionDigits: 1,
               }).format(value)
             }
           />
           <YAxis
             type="category"
             dataKey="label"
-            width={140}
+            width={190}
             tick={{ fontSize: 12 }}
+            tickMargin={5}
           />
           <Tooltip
             formatter={(value: number) =>
@@ -38,12 +40,18 @@ export function HorizontalBarChart({ data }: HorizontalBarChartProps) {
                 currency: 'BRL',
               }).format(value)
             }
+            contentStyle={{
+              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+              borderRadius: '8px',
+              border: 'none',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+            }}
           />
           <Bar
             dataKey="value"
-            fill="#3b82f6"
+            fill="rgba(59, 130, 246, 0.7)"
             radius={[0, 4, 4, 0]}
-            barSize={20}
+            barSize={24}
           />
         </BarChart>
       </ResponsiveContainer>

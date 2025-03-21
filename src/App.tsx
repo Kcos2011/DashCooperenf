@@ -13,18 +13,18 @@ import { SummaryCard } from './components/SummaryCard';
 import { revenueData, expenseData, resultData } from './data';
 
 function App() {
-  const totalRevenue = 9849415.86; // Valor exato da receita total
-  const totalExpenses = 9822927.14; // Valor exato da despesa total
-  const operationalResult = 26488.72; // Valor exato do resultado operacional
-  const sobrasNoPeriodo = 118458.88; // Valor exato das sobras no período
+  const totalRevenue = 9849415.86;
+  const totalExpenses = 9822927.14;
+  const operationalResult = 26488.72;
+  const sobrasNoPeriodo = 118458.88;
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-blue-600 text-white py-8 px-4 shadow-lg">
+      <header className="bg-blue-600 text-white py-6 px-4 shadow-lg">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center space-x-3">
             <Building2 size={32} />
-            <h1 className="text-2xl md:text-3xl font-bold">
+            <h1 className="text-lg sm:text-2xl md:text-3xl font-bold leading-tight">
               COOPERENF - INFORMAÇÕES PARA PRESTAÇÃO DE CONTAS
             </h1>
           </div>
@@ -32,9 +32,9 @@ function App() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto px-2 sm:px-4 py-6 sm:py-8">
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
           <SummaryCard
             title="Receita Total"
             value={totalRevenue}
@@ -66,11 +66,12 @@ function App() {
         </div>
 
         {/* Charts */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="overflow-hidden"
           >
             <DashboardCard
               title={
@@ -88,6 +89,7 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            className="overflow-hidden"
           >
             <DashboardCard
               title={
@@ -106,6 +108,7 @@ function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
+          className="overflow-hidden"
         >
           <DashboardCard
             title={
@@ -120,7 +123,7 @@ function App() {
         </motion.div>
       </main>
 
-      <footer className="bg-gray-800 text-white py-6 mt-12">
+      <footer className="bg-gray-800 text-white py-4 sm:py-6 mt-8 sm:mt-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p>© 2024 COOPERENF. Todos os direitos reservados.</p>
         </div>
